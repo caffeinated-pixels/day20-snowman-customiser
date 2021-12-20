@@ -1,4 +1,13 @@
-const inputs = document.querySelectorAll('.controls input')
+// const inputs = document.querySelectorAll('.controls input')
+const eyeColorInput = document.getElementById('eye-color')
+eyeColorInput.addEventListener('change', changeEyeColor)
+
+const eyes = document.querySelectorAll('.eye')
+
+function changeEyeColor(e) {
+  console.log(e.target.value)
+  eyes.forEach((eye) => (eye.style.backgroundColor = e.target.value))
+}
 
 // Task:
 // Write a function to update the snowman colors according to the colors selected from the pickers.
