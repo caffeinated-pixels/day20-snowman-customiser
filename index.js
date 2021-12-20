@@ -7,13 +7,20 @@ const noseColorInput = document.getElementById('nose-color')
 const nose = document.getElementById('nose')
 noseColorInput.addEventListener('change', changeNoseColor)
 
+const buttonColorInput = document.getElementById('button-color')
+const buttons = document.querySelectorAll('.button')
+buttonColorInput.addEventListener('change', changeButtonColor)
+
 function changeEyeColor(e) {
   eyes.forEach((eye) => (eye.style.backgroundColor = e.target.value))
 }
 
 function changeNoseColor(e) {
-  console.log('dave')
   nose.style.borderColor = `transparent transparent transparent ${e.target.value}`
+}
+
+function changeButtonColor(e) {
+  buttons.forEach((button) => (button.style.backgroundColor = e.target.value))
 }
 
 // Task:
