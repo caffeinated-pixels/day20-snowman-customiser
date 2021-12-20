@@ -1,12 +1,19 @@
 // const inputs = document.querySelectorAll('.controls input')
 const eyeColorInput = document.getElementById('eye-color')
+const eyes = document.querySelectorAll('.eye')
 eyeColorInput.addEventListener('change', changeEyeColor)
 
-const eyes = document.querySelectorAll('.eye')
+const noseColorInput = document.getElementById('nose-color')
+const nose = document.getElementById('nose')
+noseColorInput.addEventListener('change', changeNoseColor)
 
 function changeEyeColor(e) {
-  console.log(e.target.value)
   eyes.forEach((eye) => (eye.style.backgroundColor = e.target.value))
+}
+
+function changeNoseColor(e) {
+  console.log('dave')
+  nose.style.borderColor = `transparent transparent transparent ${e.target.value}`
 }
 
 // Task:
