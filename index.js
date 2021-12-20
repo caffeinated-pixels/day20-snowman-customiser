@@ -1,36 +1,21 @@
-// const inputs = document.querySelectorAll('.controls input')
-const eyeColorInput = document.getElementById('eye-color')
-const eyes = document.querySelectorAll('.eye')
-eyeColorInput.addEventListener('change', changeEyeColor)
+const inputs = document.querySelectorAll('.controls input')
 
-const pupilColorInput = document.getElementById('pupil-color')
-const pupils = document.querySelectorAll('.pupil')
-pupilColorInput.addEventListener('change', changePupilColor)
+inputs.forEach((input) => {
+  input.addEventListener('change', changeColor)
+})
 
-const noseColorInput = document.getElementById('nose-color')
-const nose = document.getElementById('nose')
-noseColorInput.addEventListener('change', changeNoseColor)
+function changeColor(e) {
+  const elementName = e.target.id.match(/^\w+/)[0]
 
-const buttonColorInput = document.getElementById('button-color')
-const buttons = document.querySelectorAll('.button')
-buttonColorInput.addEventListener('change', changeButtonColor)
+  if (elementName === 'nose') {
+    document.querySelector('.nose').style.borderLeftColor = e.target.value
+  } else {
+    const targetElements = document.querySelectorAll(`.${elementName}`)
 
-function changeEyeColor(e) {
-  console.log(e.target.value)
-  eyes.forEach((eye) => (eye.style.backgroundColor = e.target.value))
-}
-
-function changePupilColor(e) {
-  console.log(e.target.value)
-  pupils.forEach((pupil) => (pupil.style.backgroundColor = e.target.value))
-}
-
-function changeNoseColor(e) {
-  nose.style.borderColor = `transparent transparent transparent ${e.target.value}`
-}
-
-function changeButtonColor(e) {
-  buttons.forEach((button) => (button.style.backgroundColor = e.target.value))
+    targetElements.forEach(
+      (element) => (element.style.backgroundColor = e.target.value)
+    )
+  }
 }
 
 // Task:
